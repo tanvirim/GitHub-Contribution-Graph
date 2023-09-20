@@ -13,7 +13,7 @@ function useGitHubRepos(accessToken) {
 
     fetch(`https://api.github.com/user/repos?page=${page}&per_page=${perPage}`, {
       headers: {
-        Authorization: `Bearer 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`,
+        Authorization: `Bearer ${accessToken}`,
       },
     })
       .then((response) => response.json())
@@ -21,6 +21,7 @@ function useGitHubRepos(accessToken) {
         console.log("data",data)
         
         const repoNames = data?.map((repo) => repo.name);
+        console.log("repoNames",repoNames)
         setRepos(repoNames);
       })
       .catch((error) => {

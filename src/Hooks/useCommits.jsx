@@ -15,7 +15,7 @@ function useCommits(owner, repositories, accessToken) {
           `https://api.github.com/repos/tanvirim/${repo}/commits`, 
           {
             headers: {
-              Authorization: `Bearer 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`,
+              Authorization: `Bearer ${accessToken}`,
             },  
           }
         );
