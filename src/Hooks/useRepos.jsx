@@ -13,7 +13,7 @@ function useGitHubRepos(accessToken) {
 
     fetch(`https://api.github.com/user/repos?page=${page}&per_page=${perPage}`, {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer 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`,
       },
     })
       .then((response) => response.json())
