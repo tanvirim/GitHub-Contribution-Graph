@@ -12,7 +12,7 @@ function useCommits(owner, repositories, accessToken) {
 
         //https://api.github.com/repos/tanvirim/-API-Data-Visibility-/commits/main
         const response = await fetch(
-          `https://api.github.com/repos/${owner}/${repo}/commits`, 
+          `https://api.github.com/repos/tanvirim/${repo}/commits`, 
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -22,7 +22,8 @@ function useCommits(owner, repositories, accessToken) {
 
         if (response.ok) {
           const data = await response.json();
-          const commitDates = data.map((commit) => {
+          
+          const commitDates = data?.map((commit) => {
             const date = new Date(commit.commit.author.date);
             // Format the date as YYYY-MM-DD
             return date.toISOString().split('T')[0];

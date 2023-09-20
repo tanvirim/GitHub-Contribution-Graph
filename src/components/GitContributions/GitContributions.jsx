@@ -5,10 +5,12 @@ import useGitHubRepos from "../../Hooks/useRepos";
 import useCommits from "../../Hooks/useCommits";
 import { useState } from "react";
 
-const accessToken = "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" ;
-const owner = "tanvirim" ;
+
 
 const GitContributionsBar = () => {
+
+  const accessToken = import.meta.env.VITE_GITHUB_SECRET_KEY;
+  const owner = import.meta.env.VITE_GITHUB_USERNAME;
   const repositories = useGitHubRepos(accessToken);
 
   const dateFrequencyMap = useCommits(owner, repositories, accessToken);

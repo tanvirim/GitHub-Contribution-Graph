@@ -18,14 +18,15 @@ function useGitHubRepos(accessToken) {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log("data",data)
         
-        const repoNames = data.map((repo) => repo.name);
+        const repoNames = data?.map((repo) => repo.name);
         setRepos(repoNames);
       })
       .catch((error) => {
         console.error('Error fetching data from GitHub API:', error);
       });
-  }, []);
+  }, [accessToken, page, perPage]);
 
   return repos;
 }
