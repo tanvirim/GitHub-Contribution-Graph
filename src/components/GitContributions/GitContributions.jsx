@@ -4,7 +4,9 @@ import styled from "styled-components";
 import useGitHubRepos from "../../Hooks/useRepos";
 import useCommits from "../../Hooks/useCommits";
 import { useState } from "react";
-import { accessToken, owner } from "../../constants";
+
+const accessToken = "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" ;
+const owner = "tanvirim" ;
 
 const GitContributionsBar = () => {
   const repositories = useGitHubRepos(accessToken);
@@ -25,7 +27,7 @@ const GitContributionsBar = () => {
   };
 
   const handleMouseLeave = () => {
-    setTooltipText(""); // Clear the tooltip text when mouse leaves
+    setTooltipText(""); 
   };
 
   const sortedDate = data.sort((a, b) => new Date(a.date) - new Date(b.date));

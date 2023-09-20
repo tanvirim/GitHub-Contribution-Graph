@@ -9,12 +9,14 @@ function useCommits(owner, repositories, accessToken) {
 
       // Create an array of promises for fetch requests
       const fetchPromises = repositories.map(async (repo) => {
+
+        //https://api.github.com/repos/tanvirim/-API-Data-Visibility-/commits/main
         const response = await fetch(
-          `https://api.github.com/repos/${owner}/${repo}/commits`,
+          `https://api.github.com/repos/${owner}/${repo}/commits`, 
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
-            },
+            },  
           }
         );
 
@@ -26,6 +28,7 @@ function useCommits(owner, repositories, accessToken) {
             return date.toISOString().split('T')[0];
           });
           allCommitDates.push(...commitDates);
+         
         } else {
           console.error(`Error fetching data from ${repo}: ${response.status} - ${response.statusText}`);
         }
