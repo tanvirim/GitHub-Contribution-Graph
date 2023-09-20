@@ -7,7 +7,8 @@ function useCommits(owner, repositories, accessToken) {
     const fetchData = async () => {
       const allCommitDates = [];
 
-      for (const repo of repositories) {
+      // Create an array of promises for fetch requests
+      const fetchPromises = repositories.map(async (repo) => {
         const response = await fetch(
           `https://api.github.com/repos/${owner}/${repo}/commits`,
           {
@@ -28,7 +29,10 @@ function useCommits(owner, repositories, accessToken) {
         } else {
           console.error(`Error fetching data from ${repo}: ${response.status} - ${response.statusText}`);
         }
-      }
+      });
+
+      // Wait for all fetch requests to complete
+      await Promise.all(fetchPromises);
 
       // Create an object to store date frequencies
       const dateFrequencies = {};
@@ -36,9 +40,9 @@ function useCommits(owner, repositories, accessToken) {
       // Count the frequency of each date
       allCommitDates.forEach((date) => {
         if (dateFrequencies[date]) {
-          dateFrequencies[date] += 1; // Increment the frequency if the date is already in the object
+          dateFrequencies[date] += 1; 
         } else {
-          dateFrequencies[date] = 1; // Initialize the frequency to 1 if the date is not in the object
+          dateFrequencies[date] = 1; 
         }
       });
 

@@ -4,9 +4,9 @@ import styled from "styled-components";
 import useGitHubRepos from "../../Hooks/useRepos";
 import useCommits from "../../Hooks/useCommits";
 import { useState } from "react";
+import { accessToken, owner } from "../../constants";
+
 const GitContributionsBar = () => {
-  const accessToken = "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";
-  const owner = "tanvirim";
   const repositories = useGitHubRepos(accessToken);
 
   const dateFrequencyMap = useCommits(owner, repositories, accessToken);
@@ -56,7 +56,6 @@ const GitContributionsBar = () => {
             </div>
           );
         })}
-         
     </Container>
   );
 };
@@ -64,6 +63,7 @@ const GitContributionsBar = () => {
 export default GitContributionsBar;
 
 const Container = styled.div`
+margin-left:40px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 5px;
@@ -82,22 +82,22 @@ const Container = styled.div`
     cursor: pointer;
   }
   .tooltip {
-    width:200px;
-  display: none; /* Initially hidden */
-  position: absolute;
-  background-color: #000000;
-  color: #fff;
-  padding: 10px;
-  border: 1px solid #ccc;
-  /* Add other tooltip styles as needed */
-}
-.column:hover .tooltip {
-  display: block;
-  top: -60px; /* Adjust this value to position the tooltip as needed */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1; /* Ensure the tooltip is above other elements */
-}
+    width: 100px;
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    /* Add other tooltip styles as needed */
+  }
+  .column:hover .tooltip {
+    display: block;
+    top: -60px; /* Adjust this value to position the tooltip as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Ensure the tooltip is above other elements */
+  }
 
   .class1 {
     background-color: #39d353;
