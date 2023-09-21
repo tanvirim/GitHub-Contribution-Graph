@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&family=Rubik:wght@300&display=swap');
 
-.date-container {
-    display: flex;
-    margin:100px ;
-
-  .dates{
-      background-color: green;
-      height:40px ;
-      width:40px
-    }
-   
-  }
+*{
+  font-family:'Poppins','Times New Roman', Times, serif ;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(202, 253, 235);
+}

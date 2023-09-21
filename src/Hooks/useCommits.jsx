@@ -12,14 +12,14 @@ function useCommits(owner, repositories, accessToken) {
 
         //https://api.github.com/repos/tanvirim/-API-Data-Visibility-/commits/main
         const response = await fetch(
-          `https://api.github.com/repos/tanvirim/${repo}/commits`, 
+          `https://api.github.com/repos/${owner}/${repo}/commits`, 
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
             },  
           }
         );
-
+                                                                        
         if (response.ok) {
           const data = await response.json();
           
