@@ -40,7 +40,6 @@ const Home = () => {
           )}
         </div>
 
-        <div style={{ color: color }}>Tanvir Mitul's GitHub Contributions</div>
         <div>       
           <GitContributionsBar color={color} />
         </div>
@@ -53,8 +52,7 @@ export default Home;
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+
   flex-direction: column;
 
   .hidden-component {
